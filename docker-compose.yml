@@ -5,12 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: selenium-runner
-    volumes:
-        - ./scripts:/usr/src/app
-        - ./capturas:/usr/src/app/capturas
+    container_name: selenium-chrome-visual
     shm_size: 2gb
-    working_dir: /usr/src/app
-    command: python script.py
     ports:
-        - "4444:4444"
+      - "4444:4444"
+      - "7900:7900"
+    volumes:
+      - ./scripts:/usr/src/app/scripts
+      - ./capturas:/usr/src/app/capturas
+    stdin_open: true
+    tty: true
