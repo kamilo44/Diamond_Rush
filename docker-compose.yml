@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  selenium:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: selenium-runner
+    volumes:
+        - ./scripts:/usr/src/app
+        - ./capturas:/usr/src/app/capturas
+    shm_size: 2gb
+    working_dir: /usr/src/app
+    command: python script.py
+    ports:
+        - "4444:4444"
