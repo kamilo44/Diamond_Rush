@@ -1,17 +1,29 @@
-version: "3.8"
+version: "3.9"
 
 services:
-  selenium:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: selenium-chrome-visual
-    shm_size: 2gb
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-chrome
     ports:
       - "4444:4444"
       - "7900:7900"
+    shm_size: "2g"
+    networks:
+      - selenium_net
+
+  selenium-client:
+    build:
+      context: ./selenium_client
+    container_name: selenium-client
+    depends_on:
+      - selenium-chrome
     volumes:
-      - ./scripts:/usr/src/app/scripts
-      - ./capturas:/usr/src/app/capturas
-    stdin_open: true
-    tty: true
+      - ./selenium_client:/app
+    networks:
+      - selenium_net
+    # command: ["python", "script.py"]
+    command: ["tail", "-f", "/dev/null"]
+
+networks:
+  selenium_net:
+    driver: bridge
