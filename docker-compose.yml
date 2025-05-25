@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   selenium-chrome:
-    image: selenium/standalone-chrome:latest
+    build:
+      context: ./
+    # image: selenium/standalone-chrome:latest
     container_name: selenium-chrome
     ports:
       - "4444:4444"
