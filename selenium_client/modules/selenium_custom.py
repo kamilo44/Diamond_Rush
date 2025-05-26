@@ -6,8 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from PIL import Image
 import time
-import os
 
 class DiamondRushSelenium:
     def __init__(self):
@@ -168,6 +168,26 @@ class DiamondRushSelenium:
             self.switch_to_default_content()
             print("Pantallazo guardado.")
             return True
+        except Exception as e:
+            print("No se realizó correctamente el pantallazo:", e)
+            return False
+
+    def take_screenshot(self):
+        try:
+            canvas = self.switch_to_canva()
+            path = './capturas/pantallazo.png'
+            
+            canvas.screenshot(path)
+            time.sleep(0.5)
+
+            img = Image.open(path)
+            resized_img = img.resize((640, 960))
+            resized_img.save(path)
+
+            self.switch_to_default_content()
+            # print("Pantallazo guardado y redimensionado a 960x640.")
+            return True
+
         except Exception as e:
             print("No se realizó correctamente el pantallazo:", e)
             return False
