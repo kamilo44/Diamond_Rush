@@ -1,4 +1,4 @@
-env_d
+venv
 selenium_client/capturas/*
 
 **/__pycache__/

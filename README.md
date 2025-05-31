@@ -8,9 +8,11 @@ Para correr el contenedor se requiere tener instalado docker. Si ya está instal
 
 `python -m venv venv`
 
-`source ./.venv/Scripts/activate`
+`source ./.venv/Scripts/activate` (Windows)
+
+`source ./venv/bin/activate` (Linux)
 
 `pip install -r requirements.txt`
 
-`python -m ipykernel install --user --name=env --display-name "Python (env)"`
+`python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
 
