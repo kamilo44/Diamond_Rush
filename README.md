@@ -6,13 +6,11 @@ Para correr el contenedor se requiere tener instalado docker. Si ya está instal
 
 ## Python env
 
-`sudo apt install python3.10-venv`
+`python -m venv env`
 
-`python3 -m venv env_d`
-
-`source env_d/bin/activate`
+`source env/bin/activate`
 
 `pip install -r requirements.txt`
 
-`python -m ipykernel install --user --name=env_d --display-name "Python (env_d)"`
+`python -m ipykernel install --user --name=env --display-name "Python (env)"`
 

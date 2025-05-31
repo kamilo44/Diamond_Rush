@@ -15,7 +15,7 @@ RUN pip install selenium
 
 COPY . .
 
-RUN chmod -R 755 /app/ublock
+# RUN chmod -R 755 /app/ublock
 
 # CMD ["python", "script.py"]
 CMD ["tail", "-f", "/dev/null"]
