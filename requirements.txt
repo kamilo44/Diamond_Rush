@@ -1,0 +1,4 @@
+ipykernel
+selenium
+requests
+pyautogui

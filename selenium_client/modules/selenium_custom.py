@@ -85,17 +85,22 @@ class DiamondRushSelenium:
         except Exception as e:
             print("Error al cerrar el driver:", e)
 
-    def start_driver(self):
+    def start_driver(self, localhost=False):
         try:
             options = Options()
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
 
-            self.driver = webdriver.Remote(
-                command_executor='http://selenium-chrome:4444/wd/hub',
-                # command_executor='http://localhost:4444/wd/hub',
-                options=options
-            )
+            if localhost:
+                self.driver = webdriver.Remote(
+                    command_executor='http://localhost:4444/wd/hub',
+                    options=options
+                )
+            else:
+                self.driver = webdriver.Remote(
+                    command_executor='http://selenium-chrome:4444/wd/hub',
+                    options=options
+                )
             self.driver.maximize_window()
 
             # Ir a la página
