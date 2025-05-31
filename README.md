@@ -6,9 +6,9 @@ Para correr el contenedor se requiere tener instalado docker. Si ya está instal
 
 ## Python env
 
-`python -m venv env`
+`python -m venv venv`
 
-`source env/bin/activate`
+`source ./.venv/Scripts/activate`
 
 `pip install -r requirements.txt`
 

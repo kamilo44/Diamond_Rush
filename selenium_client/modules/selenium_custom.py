@@ -164,10 +164,13 @@ class DiamondRushSelenium:
             print("No se movió correctamnete con las flechas:", e)
             return False
         
-    def take_screenshot(self,):
+    def take_screenshot(self, name=None):
         try:
             canvas = self.switch_to_canva()
-            path = './capturas/pantallazo.png'
+            if name:
+                path = f'./capturas/{name}.png'
+            else:
+                path = './capturas/pantallazo.png'
             canvas.screenshot(path)
             time.sleep(0.5)
             self.switch_to_default_content()
