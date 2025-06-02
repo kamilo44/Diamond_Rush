@@ -1,5 +1,6 @@
 venv
 selenium_client/capturas/*
+selenium_client/matriz
 
 **/__pycache__/
 

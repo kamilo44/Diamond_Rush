@@ -173,29 +173,14 @@ class DiamondRushSelenium:
                 path = './capturas/pantallazo.png'
             canvas.screenshot(path)
             time.sleep(0.5)
-            self.switch_to_default_content()
-            print("Pantallazo guardado.")
-            return True
-        except Exception as e:
-            print("No se realizó correctamente el pantallazo:", e)
-            return False
-
-    def take_screenshot(self):
-        try:
-            canvas = self.switch_to_canva()
-            path = './capturas/pantallazo.png'
-            
-            canvas.screenshot(path)
-            time.sleep(0.5)
 
             img = Image.open(path)
             resized_img = img.resize((640, 960))
             resized_img.save(path)
 
             self.switch_to_default_content()
-            # print("Pantallazo guardado y redimensionado a 960x640.")
+            print("Pantallazo guardado.")
             return True
-
         except Exception as e:
             print("No se realizó correctamente el pantallazo:", e)
             return False
