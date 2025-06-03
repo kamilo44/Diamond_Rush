@@ -90,39 +90,43 @@ def crear_matriz(path_screenshot, path_images):
 
             # Muestra la mejor coincidencia
             if mejor_coincidencia is not None:
-
-                if "muro" in flag:
-                    fila.append(1)
-                elif "piso" in flag:
-                    fila.append(2)
-                elif "salidos" in flag:
-                    fila.append(3)
-                elif "diamante" in flag:
-                    fila.append(4)
-                elif "indiana" in flag:
+                
+                if "indiana" == flag[:-7]:
                     fila.append(0)
-                elif "pinchos" in flag:
+                elif "muro" == flag[:-7]:
+                    fila.append(1)
+                elif "piso" == flag[:-7]:
+                    fila.append(2)
+                elif "pinchos_salidos" == flag[:-7]:
+                    fila.append(3)
+                elif "diamante" == flag[:-7]:
+                    fila.append(4)
+                elif "pinchos_sin_salir" == flag[:-7]:
                     fila.append(5)
-                elif "lava" in flag:
+                elif "lava" == flag[:-7]:
                     fila.append(6)
-                elif "roca" in flag:
+                elif "salida_abierta" == flag[:-7]:
                     fila.append(7)
-                elif "reliquia" in flag:
+                elif "reliquia" == flag[:-7]:
                     fila.append(8)
-                elif "puerta_llave.png" == flag:
-                    fila.append(11)
-                elif "llave (1).png" == flag:
+                elif "llave" == flag[:-7]:
                     fila.append(9)
-                elif "salida" in flag:
+                elif "salida_reja" == flag[:-7]:
                     fila.append(10)
-                elif "hueco" in flag:
+                elif "puerta_con_llave" == flag[:-7]:
+                    fila.append(11)
+                elif "hueco" == flag[:-7]:
                     fila.append(12)
-                elif "piedra" in flag:
+                elif "piedra" == flag[:-7]:
                     fila.append(13)
-                elif "reja" in flag:
+                elif "reja" == flag[:-7]:
                     fila.append(14)
-                elif "boton" in flag:
+                elif "boton" == flag[:-7]:
                     fila.append(15)
+                elif "reja_abierta" == flag[:-7]:
+                    fila.append(16)
+                elif "indiana_con_llave" == flag[:-7]:
+                    fila.append(17)
                 else:fila.append(flag)
 
             else:
